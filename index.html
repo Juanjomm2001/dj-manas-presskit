@@ -521,104 +521,91 @@
         }
 
         /* CAROUSEL STYLES - UNIFIED WITH SIDE ARROWS */
-.carousel-wrapper {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-}
+        .carousel-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
 
-.carousel-arrow {
-    width: 60px;
-    height: 60px;
-    background: transparent;
-    border: 1px solid var(--border-color);
-    color: var(--text-white);
-    font-size: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s;
-    flex-shrink: 0;
-    z-index: 10;
-}
+        .carousel-arrow {
+            width: 60px;
+            height: 60px;
+            background: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex-shrink: 0;
+            z-index: 10;
+        }
 
-.carousel-arrow:hover {
-    border-color: var(--accent-red);
-    color: var(--accent-red);
-    background: rgba(255, 56, 100, 0.05);
-}
+        .carousel-arrow:hover {
+            border-color: var(--accent-red);
+            color: var(--accent-red);
+            background: rgba(255, 56, 100, 0.05);
+        }
 
-.carousel-arrow:active {
-    transform: scale(0.95);
-}
+        .carousel-arrow:active {
+            transform: scale(0.95);
+        }
 
-.carousel-container {
-    overflow: hidden;
-    position: relative;
-    flex: 1;
-}
+        .carousel-container {
+            overflow: hidden;
+            position: relative;
+            flex: 1;
+            max-width: 100%;
+            -webkit-overflow-scrolling: touch;
+        }
 
-.carousel-track {
-    display: flex;
-    gap: 2rem;
-    transition: transform 0.5s ease;
-    padding: 1rem 0;
-    cursor: grab;
-}
+        .carousel-track {
+            display: flex;
+            gap: 2rem;
+            transition: transform 0.5s ease;
+            padding: 1rem 0;
+            cursor: grab;
+            touch-action: pan-y pinch-zoom;
+        }
 
-.carousel-track:active {
-    cursor: grabbing;
-}
+        .carousel-track:active {
+            cursor: grabbing;
+        }
 
-.carousel-media-item {
-    flex: 0 0 400px;
-    /* aspect-ratio: 4/3; */
-    aspect-ratio: 3/4;
-    background: var(--bg-darker);
-    border: 1px solid var(--border-color);
-    overflow: hidden;
-    transition: all 0.3s;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+        .carousel-media-item {
+            flex: 0 0 350px;
+            aspect-ratio: 3/4;
+            background: var(--bg-darker);
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-.carousel-media-item:hover {
-    border-color: var(--accent-red);
-    transform: scale(1.02);
-}
+        .carousel-media-item:hover {
+            border-color: var(--accent-red);
+            transform: scale(1.02);
+        }
 
-.media-placeholder {
-    text-align: center;
-    color: var(--text-gray);
-}
+        .media-placeholder {
+            text-align: center;
+            color: var(--text-gray);
+        }
 
-.media-icon {
-    font-size: 3rem;
-    margin-bottom: 0.5rem;
-    opacity: 0.3;
-}
+        .media-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            opacity: 0.3;
+        }
 
-.media-label {
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-}
+        .media-label {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
 
-@media (max-width: 968px) {
-    .carousel-wrapper {
-        gap: 1rem;
-    }
-    
-    .carousel-arrow {
-        width: 45px;
-        height: 45px;
-        font-size: 1.2rem;
-    }
-    
-    .carousel-media-item {
-        flex: 0 0 280px;  /* Más estrecho en móvil */
-    }
-}
         /* Contact minimal */
         .contact-container {
             max-width: 900px;
@@ -706,12 +693,56 @@
                 flex-direction: column;
             }
 
-            .carousel-video-item {
-                flex: 0 0 280px;
+            /* CAROUSEL RESPONSIVE */
+            .carousel-wrapper {
+                gap: 0.5rem;
             }
             
-            .carousel-photo-item {
-                flex: 0 0 320px;
+            .carousel-arrow {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+            
+            .carousel-media-item {
+                flex: 0 0 280px;
+            }
+
+            .carousel-track {
+                gap: 1.5rem;
+            }
+
+            .parties-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Extra responsive para iPhones pequeños */
+        @media (max-width: 480px) {
+            .carousel-wrapper {
+                gap: 0.3rem;
+            }
+            
+            .carousel-arrow {
+                width: 35px;
+                height: 35px;
+                font-size: 1rem;
+            }
+            
+            .carousel-media-item {
+                flex: 0 0 240px;
+            }
+            
+            .carousel-track {
+                gap: 1rem;
+            }
+
+            .nav-links {
+                gap: 1rem;
+            }
+
+            .nav-links a {
+                font-size: 0.8rem;
             }
         }
 
@@ -792,7 +823,7 @@
         <div class="bio-grid">
             <div class="bio-text">
                 <p>
-                    Hi! I'm <span class="highlight"> DJ Mañas</span>, a reggaeton and Latin music specialist 
+                    Hi! I'm <span class="highlight">DJ Mañas</span>, a reggaeton and Latin music specialist 
                     currently based in Copenhagen. As a passionate reggaeton lover, I've been bringing urban Latin music 
                     to the best clubs and events across Europe for the past 4 years.
                 </p>
@@ -874,7 +905,7 @@
                 </div>
                 <div class="party-info">
                     <div class="party-name">Erasmus Dreamland</div>
-                    <p> The best Latin Erasmus party in all of Europe </p>
+                    <p>The best Latin Erasmus party in all of Europe</p>
                     <br>
                     <div class="party-socials">
                         <a href="https://www.instagram.com/erasmusdreamland/" target="_blank" class="social-link-text">@erasmusdreamland</a>
@@ -888,8 +919,8 @@
                     <img src="mambo.jpg" alt="Sala Mambo" style="width:100%; height:100%; object-fit:cover;">
                 </div>
                 <div class="party-info">
-                    <div class="party-name"> Sala Mambo Copenhagen</div>
-                    <p> The number one Latin club in Copenhagen</p>
+                    <div class="party-name">Sala Mambo Copenhagen</div>
+                    <p>The number one Latin club in Copenhagen</p>
                     <br>
                     <div class="party-socials">
                         <a href="https://www.instagram.com/clubmambo_cph/?hl=en" target="_blank" class="social-link-text">@clubmambo_cph</a>
@@ -903,7 +934,7 @@
                 </div>
                 <div class="party-info">
                     <div class="party-name">Reggaeton Party</div>
-                    <p> Amazing Latin events in all of Europe </p>
+                    <p>Amazing Latin events in all of Europe</p>
                     <br>
                     <div class="party-socials">
                         <a href="https://www.instagram.com/reggaetonpartyofficial/?hl=en" target="_blank" class="social-link-text">@reggaetonpartyofficial</a>
@@ -928,78 +959,74 @@
     <div class="section-divider"></div>
 
     <!-- Media Section with UNIFIED CAROUSEL -->
-<section id="media">
-    <div class="section-header">
-        <div class="section-number">03</div>
-        <h2 class="section-title">Media</h2>
-        <p class="section-subtitle">
-            Videos and photos from recent performances
-        </p>
-    </div>
-
-    <!-- Unified Carousel with side arrows -->
-    <div class="carousel-wrapper">
-        <button class="carousel-arrow carousel-arrow-left" id="media-prev">←</button>
-        
-        <div class="carousel-container">
-            <div class="carousel-track" id="media-track">
-                <!-- Videos -->
-                <div class="carousel-media-item">
-                    <video controls style="width:100%; height:100%; object-fit:cover;">
-                        <source src="video1.mp4" type="video/mp4">
-                    </video>
-                </div>
-                 <!-- Photos -->
-                <div class="carousel-media-item">
-                    <img src="zirkus.jpg" alt="DJ Mañas" style="width:100%; height:100%; object-fit:cover;">
-                </div> 
-
-
-                <div class="carousel-media-item">
-                    <video controls style="width:100%; height:100%; object-fit:cover;">
-                        <source src="video3.mp4" type="video/mp4">
-                    </video>
-                </div>
-
-                
-                 <div class="carousel-media-item">
-                    <img src="zirkus2.jpg" alt="DJ Mañas" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-
-
-                 <div class="carousel-media-item">
-                    <video controls style="width:100%; height:100%; object-fit:cover;">
-                        <source src="enjoy.mp4" type="video/mp4">
-                    </video>
-                </div>
-
-                <div class="carousel-media-item">
-                    <img src="verde.jpg" alt="DJ Mañas" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-
-
-                <div class="carousel-media-item">
-                    <video controls style="width:100%; height:100%; object-fit:cover;">
-                        <source src="mambo.mp4" type="video/mp4">
-                    </video>
-                </div>
-
-                <div class="carousel-media-item">
-                    <img src="mirror2.jpg" alt="DJ Mañas" style="width:100%; height:100%; object-fit:cover;">
-                </div>
-
-                <div class="carousel-media-item">
-                    <video controls style="width:100%; height:100%; object-fit:cover;">
-                        <source src="pocho.mp4" type="video/mp4">
-                    </video>
-                </div>
-            
-            </div>
+    <section id="media">
+        <div class="section-header">
+            <div class="section-number">03</div>
+            <h2 class="section-title">Media</h2>
+            <p class="section-subtitle">
+                Videos and photos from recent performances
+            </p>
         </div>
-        
-        <button class="carousel-arrow carousel-arrow-right" id="media-next">→</button>
-    </div>
-</section>
+
+        <!-- Unified Carousel with side arrows -->
+        <div class="carousel-wrapper">
+            <button class="carousel-arrow carousel-arrow-left" id="media-prev">←</button>
+            
+            <div class="carousel-container">
+                <div class="carousel-track" id="media-track">
+                    <!-- Videos & Photos -->
+                    <div class="carousel-media-item">
+                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                            <source src="video1.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    
+                    <div class="carousel-media-item">
+                        <img src="zirkus.jpg" alt="DJ Mañas" style="width:100%; height:100%; object-fit:cover;">
+                    </div> 
+
+                    <div class="carousel-media-item">
+                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                            <source src="video3.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="carousel-media-item">
+                        <img src="zirkus2.jpg" alt="DJ Mañas" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+
+                    <div class="carousel-media-item">
+                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                            <source src="enjoy.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="carousel-media-item">
+                        <img src="verde.jpg" alt="DJ Mañas" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+
+                    <div class="carousel-media-item">
+                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                            <source src="mambo.mp4" type="video/mp4">
+                        </video>
+                    </div>
+
+                    <div class="carousel-media-item">
+                        <img src="mirror2.jpg" alt="DJ Mañas" style="width:100%; height:100%; object-fit:cover;">
+                    </div>
+
+                    <div class="carousel-media-item">
+                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                            <source src="pocho.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="carousel-arrow carousel-arrow-right" id="media-next">→</button>
+        </div>
+    </section>
+
     <div class="section-divider"></div>
 
     <!-- Equipment Section -->
@@ -1008,7 +1035,7 @@
             <div class="section-number">04</div>
             <h2 class="section-title">Equipment</h2>
             <p class="section-subtitle">
-                 Experienced with all major DJ equipment and formats. Can perform on any setup - CDJs, controllers, all-in-one systems. Adaptable to any venue requirements and technical specifications
+                Experienced with all major DJ equipment and formats. Can perform on any setup - CDJs, controllers, all-in-one systems. Adaptable to any venue requirements and technical specifications
             </p>
         </div>
 
@@ -1125,133 +1152,129 @@
         });
 
         // UNIFIED CAROUSEL FUNCTIONALITY
-    function setupUnifiedCarousel(trackId, prevBtnId, nextBtnId) {
-        const track = document.getElementById(trackId);
-        const prevBtn = document.getElementById(prevBtnId);
-        const nextBtn = document.getElementById(nextBtnId);
-        
-        if (!track || !prevBtn || !nextBtn) return;
-        
-        let currentPosition = 0;
-        const items = track.children;
-        if (items.length === 0) return;
-        
-        const itemWidth = items[0].offsetWidth + 32; // width + gap
-        const visibleItems = Math.floor(track.parentElement.offsetWidth / itemWidth);
-        const maxPosition = -(items.length - visibleItems) * itemWidth;
-        
-        // Update button states
-        function updateButtons() {
-            prevBtn.style.opacity = currentPosition >= 0 ? '0.3' : '1';
-            prevBtn.style.cursor = currentPosition >= 0 ? 'not-allowed' : 'pointer';
-            nextBtn.style.opacity = currentPosition <= maxPosition ? '0.3' : '1';
-            nextBtn.style.cursor = currentPosition <= maxPosition ? 'not-allowed' : 'pointer';
-        }
-        
-        updateButtons();
-        
-        prevBtn.addEventListener('click', () => {
-            if (currentPosition < 0) {
-                currentPosition += itemWidth;
-                if (currentPosition > 0) currentPosition = 0;
-                track.style.transform = `translateX(${currentPosition}px)`;
-                updateButtons();
-            }
-        });
-        
-        nextBtn.addEventListener('click', () => {
-            if (currentPosition > maxPosition) {
-                currentPosition -= itemWidth;
-                if (currentPosition < maxPosition) currentPosition = maxPosition;
-                track.style.transform = `translateX(${currentPosition}px)`;
-                updateButtons();
-            }
-        });
-        
-        // Touch/swipe support
-        let startX = 0;
-        let currentX = 0;
-        let isDragging = false;
-        
-        track.addEventListener('touchstart', (e) => {
-            startX = e.touches[0].clientX;
-            isDragging = true;
-        });
-        
-        track.addEventListener('touchmove', (e) => {
-            if (!isDragging) return;
-            currentX = e.touches[0].clientX;
-            const diff = currentX - startX;
-            track.style.transform = `translateX(${currentPosition + diff}px)`;
-        });
-        
-        track.addEventListener('touchend', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            const diff = currentX - startX;
+        function setupUnifiedCarousel(trackId, prevBtnId, nextBtnId) {
+            const track = document.getElementById(trackId);
+            const prevBtn = document.getElementById(prevBtnId);
+            const nextBtn = document.getElementById(nextBtnId);
             
-            if (Math.abs(diff) > 50) {
-                if (diff > 0 && currentPosition < 0) {
+            if (!track || !prevBtn || !nextBtn) return;
+            
+            let currentPosition = 0;
+            const items = track.children;
+            if (items.length === 0) return;
+            
+            const itemWidth = items[0].offsetWidth + parseInt(getComputedStyle(track).gap);
+            const visibleItems = Math.floor(track.parentElement.offsetWidth / itemWidth);
+            const maxPosition = -(items.length - visibleItems) * itemWidth;
+            
+            // Update button states
+            function updateButtons() {
+                prevBtn.style.opacity = currentPosition >= 0 ? '0.3' : '1';
+                prevBtn.style.cursor = currentPosition >= 0 ? 'not-allowed' : 'pointer';
+                nextBtn.style.opacity = currentPosition <= maxPosition ? '0.3' : '1';
+                nextBtn.style.cursor = currentPosition <= maxPosition ? 'not-allowed' : 'pointer';
+            }
+            
+            updateButtons();
+            
+            prevBtn.addEventListener('click', () => {
+                if (currentPosition < 0) {
                     currentPosition += itemWidth;
                     if (currentPosition > 0) currentPosition = 0;
-                } else if (diff < 0 && currentPosition > maxPosition) {
+                    track.style.transform = `translateX(${currentPosition}px)`;
+                    updateButtons();
+                }
+            });
+            
+            nextBtn.addEventListener('click', () => {
+                if (currentPosition > maxPosition) {
                     currentPosition -= itemWidth;
                     if (currentPosition < maxPosition) currentPosition = maxPosition;
+                    track.style.transform = `translateX(${currentPosition}px)`;
+                    updateButtons();
                 }
-            }
+            });
             
-            track.style.transform = `translateX(${currentPosition}px)`;
-            updateButtons();
-        });
-        
-        // Mouse drag support
-        track.addEventListener('mousedown', (e) => {
-            startX = e.clientX;
-            isDragging = true;
-            track.style.cursor = 'grabbing';
-        });
-        
-        track.addEventListener('mousemove', (e) => {
-            if (!isDragging) return;
-            currentX = e.clientX;
-            const diff = currentX - startX;
-            track.style.transform = `translateX(${currentPosition + diff}px)`;
-        });
-        
-        track.addEventListener('mouseup', (e) => {
-            if (!isDragging) return;
-            isDragging = false;
-            track.style.cursor = 'grab';
-            const diff = currentX - startX;
+            // Touch/swipe support
+            let startX = 0;
+            let currentX = 0;
+            let isDragging = false;
             
-            if (Math.abs(diff) > 50) {
-                if (diff > 0 && currentPosition < 0) {
-                    currentPosition += itemWidth;
-                    if (currentPosition > 0) currentPosition = 0;
-                } else if (diff < 0 && currentPosition > maxPosition) {
-                    currentPosition -= itemWidth;
-                    if (currentPosition < maxPosition) currentPosition = maxPosition;
+            track.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                isDragging = true;
+            });
+            
+            track.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentX = e.touches[0].clientX;
+                const diff = currentX - startX;
+                track.style.transform = `translateX(${currentPosition + diff}px)`;
+            });
+            
+            track.addEventListener('touchend', (e) => {
+                if (!isDragging) return;
+                isDragging = false;
+                const diff = currentX - startX;
+                
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentPosition < 0) {
+                        currentPosition += itemWidth;
+                        if (currentPosition > 0) currentPosition = 0;
+                    } else if (diff < 0 && currentPosition > maxPosition) {
+                        currentPosition -= itemWidth;
+                        if (currentPosition < maxPosition) currentPosition = maxPosition;
+                    }
                 }
-            }
+                
+                track.style.transform = `translateX(${currentPosition}px)`;
+                updateButtons();
+            });
             
-            track.style.transform = `translateX(${currentPosition}px)`;
-            updateButtons();
-        });
-        
-        track.addEventListener('mouseleave', () => {
-            if (isDragging) {
+            // Mouse drag support
+            track.addEventListener('mousedown', (e) => {
+                startX = e.clientX;
+                isDragging = true;
+                track.style.cursor = 'grabbing';
+            });
+            
+            track.addEventListener('mousemove', (e) => {
+                if (!isDragging) return;
+                currentX = e.clientX;
+                const diff = currentX - startX;
+                track.style.transform = `translateX(${currentPosition + diff}px)`;
+            });
+            
+            track.addEventListener('mouseup', (e) => {
+                if (!isDragging) return;
                 isDragging = false;
                 track.style.cursor = 'grab';
-            }
-        });
-    }
+                const diff = currentX - startX;
+                
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentPosition < 0) {
+                        currentPosition += itemWidth;
+                        if (currentPosition > 0) currentPosition = 0;
+                    } else if (diff < 0 && currentPosition > maxPosition) {
+                        currentPosition -= itemWidth;
+                        if (currentPosition < maxPosition) currentPosition = maxPosition;
+                    }
+                }
+                
+                track.style.transform = `translateX(${currentPosition}px)`;
+                updateButtons();
+            });
+            
+            track.addEventListener('mouseleave', () => {
+                if (isDragging) {
+                    isDragging = false;
+                    track.style.cursor = 'grab';
+                }
+            });
+        }
 
-// Initialize unified carousel
-setupUnifiedCarousel('media-track', 'media-prev', 'media-next');
-
-        // Initialize carousels
-        setupCarousel('video-track', 'video-prev', 'video-next');
-        setupCarousel('photo-track', 'photo-prev', 'photo-next');
+        // Initialize unified carousel
+        setupUnifiedCarousel('media-track', 'media-prev', 'media-next');
     </script>
 </body>
 </html>

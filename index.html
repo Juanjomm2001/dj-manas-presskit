@@ -572,9 +572,11 @@
             cursor: grabbing;
         }
 
+        /* AJUSTE PARA VIDEOS EN MÓVIL */
         .carousel-media-item {
             flex: 0 0 350px;
-            aspect-ratio: 3/4;
+            /* Eliminamos aspect-ratio fijo para mayor compatibilidad */
+            min-height: 450px; 
             background: var(--bg-darker);
             border: 1px solid var(--border-color);
             overflow: hidden;
@@ -582,6 +584,14 @@
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .carousel-media-item video, 
+        .carousel-media-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
 
         .carousel-media-item:hover {
@@ -706,6 +716,7 @@
             
             .carousel-media-item {
                 flex: 0 0 280px;
+                min-height: 400px;
             }
 
             .carousel-track {
@@ -731,6 +742,7 @@
             
             .carousel-media-item {
                 flex: 0 0 240px;
+                min-height: 350px;
             }
             
             .carousel-track {
@@ -768,7 +780,6 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">DJ MAÑAS</div>
@@ -782,7 +793,6 @@
         </div>
     </nav>
 
-    <!-- Hero Section with Photo -->
     <section class="hero">
         <div class="hero-content">
             <div class="hero-text">
@@ -810,7 +820,6 @@
         </div>
     </section>
 
-    <!-- About Section -->
     <section id="about">
         <div class="section-header">
             <div class="section-number">01</div>
@@ -863,7 +872,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- Events Section -->
     <section id="events">
         <div class="section-header">
             <div class="section-number">02</div>
@@ -958,7 +966,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- Media Section with UNIFIED CAROUSEL -->
     <section id="media">
         <div class="section-header">
             <div class="section-number">03</div>
@@ -968,15 +975,13 @@
             </p>
         </div>
 
-        <!-- Unified Carousel with side arrows -->
         <div class="carousel-wrapper">
             <button class="carousel-arrow carousel-arrow-left" id="media-prev">←</button>
             
             <div class="carousel-container">
                 <div class="carousel-track" id="media-track">
-                    <!-- Videos & Photos -->
                     <div class="carousel-media-item">
-                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                        <video controls playsinline style="width:100%; height:100%; object-fit:cover;">
                             <source src="video1.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -986,7 +991,7 @@
                     </div> 
 
                     <div class="carousel-media-item">
-                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                        <video controls playsinline style="width:100%; height:100%; object-fit:cover;">
                             <source src="video3.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -996,7 +1001,7 @@
                     </div>
 
                     <div class="carousel-media-item">
-                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                        <video controls playsinline style="width:100%; height:100%; object-fit:cover;">
                             <source src="enjoy.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -1006,7 +1011,7 @@
                     </div>
 
                     <div class="carousel-media-item">
-                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                        <video controls playsinline style="width:100%; height:100%; object-fit:cover;">
                             <source src="mambo.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -1016,7 +1021,7 @@
                     </div>
 
                     <div class="carousel-media-item">
-                        <video controls style="width:100%; height:100%; object-fit:cover;">
+                        <video controls playsinline style="width:100%; height:100%; object-fit:cover;">
                             <source src="pocho.mp4" type="video/mp4">
                         </video>
                     </div>
@@ -1029,7 +1034,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- Equipment Section -->
     <section id="equipment">
         <div class="section-header">
             <div class="section-number">04</div>
@@ -1068,7 +1072,6 @@
 
     <div class="section-divider"></div>
 
-    <!-- Contact Section -->
     <section id="contact">
         <div class="section-header">
             <div class="section-number">05</div>
